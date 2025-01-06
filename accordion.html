@@ -1,0 +1,40 @@
+<!-- Use Sitefinity's helper to make uniqueDspAccordion id then change in script -->
+<!-- Use unique name="" => dsp-accordion-{n} -->
+<!-- Use unique id="" and for="" => dspAccordionOption1{n} -->
+<!-- Update all links' href -->
+<section class="dsp-accordion" id="uniqueDspAccordion">
+    <!-- foreach all parent pages -->
+    <div class="dsp-tab">
+        <!-- add "checked" attribute when on current page -->
+        <input type="checkbox" name="dsp-accordion-1" id="dspAccordionOption1">
+        <label for="dspAccordionOption1" class="dsp-tab__label">
+            <a class="dsp-tab__link" href="#somewhere">Southern LEAD Provincial Conferences</a>
+            <i class="fa dsp-chevron" aria-hidden="true"></i>
+        </label>
+        <div class="dsp-tab__content">
+            <ul>
+                <!-- foreach all child pages -->
+                <li>
+                    <!-- add "active" class when on current page -->
+                    <a class="dsp-tab__content-link" href="#">Register</a>
+                </li>
+                <!-- end foreach all child pages -->
+            </ul>
+        </div>
+    </div>
+    <!-- end foreach all parent pages -->
+    </div>
+</section>
+<script>
+    const dspAccordion = document.getElementById("uniqueDspAccordion");
+    const checkboxes = dspAccordion.querySelectorAll('input[type="checkbox"]')
+    checkboxes.forEach((checkbox) => {
+        checkbox.addEventListener("click", (ev) => {
+            collapse(ev.target);
+        })
+    });
+
+    function collapse(curr) {
+        Array.from(checkboxes).filter(x => x !== curr && x.checked).map(x => x.checked = false)
+    }
+</script>
