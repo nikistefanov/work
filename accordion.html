@@ -27,14 +27,31 @@
 </section>
 <script>
     const dspAccordion = document.getElementById("uniqueDspAccordion");
-    const checkboxes = dspAccordion.querySelectorAll('input[type="checkbox"]')
+    const checkboxes = dspAccordion.querySelectorAll('input[type="checkbox"]');
+    let currentItem = null;
     checkboxes.forEach((checkbox) => {
         checkbox.addEventListener("click", (ev) => {
             collapse(ev.target);
+
+            if (window.outerWidth <= 480 && ev.target.checked) {
+                currentItem = ev.target;
+                document.addEventListener("click", documentClickEv);
+            }
         })
     });
 
     function collapse(curr) {
-        Array.from(checkboxes).filter(x => x !== curr && x.checked).map(x => x.checked = false)
+        Array.from(checkboxes).filter(x => x !== curr && x.checked).map(x => x.checked = false);
+
+        if (currentItem) {
+            document.removeEventListener("click", documentClickEv);
+            currentItem = null;
+        }
+    }
+
+    function documentClickEv(ev) {
+        if (currentItem && !dspAccordion.contains(ev.target)) {
+            collapse();
+        }
     }
 </script>
