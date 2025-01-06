@@ -186,12 +186,18 @@
 
     .dsp-accordion .dsp-tab__link {
         padding-right: 0;
-        margin-right: 30px;
+        width: calc(100% - 40px);
     }
 
     .dsp-accordion .dsp-chevron {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         position: absolute;
-        right: 20px;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 40px;
     }
 
     .dsp-accordion .dsp-tab__label:hover,
