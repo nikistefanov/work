@@ -1,0 +1,105 @@
+<div class="dsp-section">
+    <h1>Schedule</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.</p>
+    <!-- TODO: use Sitefinity's helper to make uniqueDspTabstrip id then change in script -->
+    <!-- TODO: unique data-option value and update ids in dsp-tabstrip__tab-content -->
+    <!-- TODO: unique dspAccordionOption1{n} id and for -->
+    <section class="dsp-tabstrip dsp-section" id="uniqueDspTabstrip">
+        <div>
+            <div class="dsp-tabstrip__tabs">
+                <!-- add "active" class to first item by default -->
+                <!-- foreach for tabs -->
+                <button type="button" class="dsp-tabstrip__tablink active" data-option="day-1">
+                    <span>
+                        <span class="dsp-tabstrip__day">DAY 1</span>
+                        <span class="dsp-tabstrip__weekday">, Monday</span>
+                    </span>
+                    <span class="dsp-tabstrip__full-date">March 7, 2025</span>
+                    <span class="dsp-tabstrip__short-date">
+                        <span class="dsp-tabstrip__short-date-month">MAR</span>
+                        <span class="dsp-tabstrip__short-date-day">07</span>
+                    </span>
+                </button>
+                <!-- end foreach for tabs -->
+            </div>
+
+            <div class="dsp-tabstrip__content-wrapper">
+                <!-- foreach for content of tabs -->
+                <div id="day-1" class="dsp-tabstrip__content active">
+                    <section class="dsp-desc-list">
+                        <!-- if needed foreach only one <article> otherwise hardcode -->
+                        <article class="dsp-desc-list__item">
+                            <div class="dsp-desc-list__term">
+                                <span>7:00 AM</span> - <span>8:00 AM</span>
+                            </div>
+                            <div class="dsp-desc-list__desc">
+                                <h6 class="dsp-desc-list__heading">Registration Open</h6>
+                                <p class="dsp-desc-list__body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            </div>
+                        </article>
+                        <article class="dsp-desc-list__item">
+                            <div class="dsp-desc-list__term">
+                                <span>8:00 AM</span> - <span>10:45 AM</span>
+                            </div>
+                            <div class="dsp-desc-list__desc">
+                                <h6 class="dsp-desc-list__heading">Registration Open</h6>
+                                <p class="dsp-desc-list__body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            </div>
+                        </article>
+                        <article class="dsp-desc-list__item">
+                            <div class="dsp-desc-list__term">
+                                <span>10:45 AM</span> - <span>11:45 AM</span>
+                            </div>
+                            <div class="dsp-desc-list__desc">
+                                <h6 class="dsp-desc-list__heading">LUNCH</h6>
+                            </div>
+                        </article>
+                        <article class="dsp-desc-list__item">
+                            <div class="dsp-desc-list__term">
+                                <span>10:45 AM</span> - <span>11:45 AM</span>
+                            </div>
+                            <div class="dsp-desc-list__desc">
+                                <h6 class="dsp-desc-list__heading">Registration Open</h6>
+                                <p class="dsp-desc-list__body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            </div>
+                        </article>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </section>
+    <a class="dsp-cta-back" href="#">
+        <svg width="22" height="12" viewBox="0 0 22 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6.54589 7.95324H21.2891C21.6127 7.95324 21.875 7.69089 21.875 7.36731V4.63293C21.875 4.30935 21.6127 4.04699 21.2891 4.04699H6.54589V1.79802C6.54589 0.753976 5.28363 0.231125 4.54535 0.969357L0.34325 5.17146C-0.114417 5.62912 -0.114417 6.37112 0.34325 6.82873L4.54535 11.0308C5.28358 11.7691 6.54589 11.2462 6.54589 10.2022V7.95324Z"/>
+        </svg>                                                        
+        Back to Events
+    </a>
+    <script>
+        const tabstrip = document.getElementById("uniqueDspTabstrip");
+        const tabs = tabstrip.querySelector(".dsp-tabstrip__tabs");
+        const tabLinks = tabstrip.querySelectorAll(".dsp-tabstrip__tablink");
+        const tabContent = tabstrip.querySelectorAll(".dsp-tabstrip__content");
+
+
+        tabLinks.forEach(function (el) {
+            el.addEventListener("click", openTabs);
+        });
+
+
+        function openTabs(el) {
+            const btnTarget = el.currentTarget;
+            const option = btnTarget.dataset.option;
+
+            closeTabs();
+
+            document.querySelector("#" + option).classList.add("active");
+            btnTarget.classList.add("active");
+        }
+
+        function closeTabs() {
+            Array.from(tabLinks).filter(x => x.classList.contains("active")).forEach(x => x.classList.remove("active"));
+            Array.from(tabContent).filter(x => x.classList.contains("active")).forEach(x => x.classList.remove("active"));
+        }
+    </script>
+</div>

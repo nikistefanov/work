@@ -1,7 +1,7 @@
 <style>
     @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700");
 
-    /*#region layout*/
+    /*#region Layout*/
     .sub-content .dsp-section {
         padding: 1rem 2rem;
     }
@@ -23,7 +23,23 @@
         padding-inline: 0.5rem;
         margin-top: 2rem;
     }
-    /*#endregion layout*/
+
+    /*#endregion Layout*/
+
+    /*#region Generic*/
+    .dsp-cta-back {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        text-decoration: none;
+        color: #F9BB00;
+        font-family: Arvo;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+    }
+    /*#endregion Generic*/
+
     /*#region Media*/
     .sfContentBlock:has(> .dsp-media) {
         padding-inline: 1rem;
@@ -96,6 +112,7 @@
 
     .dsp-tabstrip__full-date {
         font-size: 24px;
+        text-transform: uppercase;
     }
 
     .dsp-tabstrip__short-date {
@@ -117,18 +134,18 @@
     }
 
     .dsp-tabstrip__content-wrapper {
-        margin-top: 2rem;
+        margin-top: 1.5rem;
     }
 
     .dsp-tabstrip__day {
         text-transform: uppercase;
-    }    
+    }
 
     .sub-content-right .dsp-tabstrip__tabs:has(> .dsp-tabstrip__tablink:nth-child(4)) .dsp-tabstrip__weekday,
     .sub-content-right .dsp-tabstrip__tabs:has(> .dsp-tabstrip__tablink:nth-child(4)) .dsp-tabstrip__full-date {
         display: none;
     }
-    
+
     .sub-content-right .dsp-tabstrip__tabs:has(> .dsp-tabstrip__tablink:nth-child(4)) .dsp-tabstrip__short-date {
         display: flex;
     }
@@ -136,6 +153,7 @@
     .sub-content-right .dsp-tabstrip__tabs:has(> .dsp-tabstrip__tablink:nth-child(4)) .dsp-tabstrip__tablink {
         gap: 2px;
     }
+
     /*#endregion Tabstrip*/
 
     /*#region Accordion*/
@@ -223,8 +241,59 @@
     }
 
     /*#endregion Accordion*/
+
+    /*#region Description list*/
+    .dsp-desc-list__item {
+        display: flex;
+        gap: 1rem;
+        padding: 20px;
+    }
+
+    .dsp-desc-list__item:nth-child(odd) {
+        background-color: #F5F5F5;
+    }
+
+    .dsp-desc-list__term {
+        font-family: Roboto Slab;
+        font-size: 22px;
+        font-weight: 700;
+        line-height: 24px;
+        color: #2D015B;
+        width: max(210px, 43%);
+    }
+    
+    .dsp-desc-list__term * {
+        white-space: break-spaces;
+    }
+
+    .dsp-desc-list__desc {
+        flex: 1;
+    }
+
+    .dsp-desc-list__heading,
+    .dsp-desc-list__body {
+        color: #333;
+        line-height: 24px;
+    }
+
+    .dsp-desc-list__heading {
+        font-family: Roboto Slab;
+        font-size: 18px;
+        font-weight: 700;
+        margin: 0;
+    }
+
+    .dsp-desc-list__body {
+        font-family: Arvo;
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+    /*#endregion Description list*/
+
     /*#region queries*/
     @media only screen and (max-width: 970px) {
+
         .sub-content-right .dsp-tabstrip__weekday,
         .sub-content-right .dsp-tabstrip__full-date {
             display: none;
@@ -263,10 +332,18 @@
         .sub-content-right .dsp-tabstrip__tabs:has(> .dsp-tabstrip__tablink:nth-child(4)) {
             gap: 5px;
         }
+
+        .dsp-desc-list__item {
+            flex-direction: column;
+        }
+
+        .dsp-desc-list__term {
+            width: 100%;
+        }
     }
 
     @media only screen and (max-width: 480px) {
-        .dsp-media { 
+        .dsp-media {
             padding-left: 30px;
             padding-top: 10px;
         }
@@ -288,11 +365,13 @@
             background-color: #2D015B;
             z-index: 100;
         }
+
         .sub-content .sub-content-left .dsp-accordion .dsp-tab__label {
             padding-inline: 10px;
         }
-        
+
     }
+
     /*#endregion queries*/
 </style>
 <!-- sb-sub-content-bg add to top level container -->
@@ -349,7 +428,8 @@
                                                     <input type="checkbox" name="dsp-accordion-2"
                                                         id="dspAccordionOption2">
                                                     <label for="dspAccordionOption2" class="dsp-tab__label">
-                                                        <a class="dsp-tab__link" href="#somewhere">Western LEAD Provincial Conferences</a>
+                                                        <a class="dsp-tab__link" href="#somewhere">Western LEAD
+                                                            Provincial Conferences</a>
                                                         <i class="fa dsp-chevron" aria-hidden="true"></i>
                                                     </label>
                                                     <div class="dsp-tab__content">
@@ -371,7 +451,8 @@
                                                     <input type="checkbox" name="dsp-accordion-3"
                                                         id="dspAccordionOption3">
                                                     <label for="dspAccordionOption3" class="dsp-tab__label">
-                                                        <a class="dsp-tab__link" href="#somewhere">North Central LEAD Provincial Conferences</a>
+                                                        <a class="dsp-tab__link" href="#somewhere">North Central LEAD
+                                                            Provincial Conferences</a>
                                                         <i class="fa dsp-chevron" aria-hidden="true"></i>
                                                     </label>
                                                     <div class="dsp-tab__content">
@@ -433,7 +514,8 @@
                                     <div class="sf_colsIn sf_1col_1in_100">
                                         <div class="dsp-section">
                                             <h1>Schedule</h1>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                                tempor incididunt ut labore et dolore magna aliqua.</p>
                                             <!-- TODO: use Sitefinity's helper to make uniqueDspTabstrip id then change in script -->
                                             <!-- TODO: use Sitefinity's helper to make data-option value and update ids in dsp-tabstrip__tab-content -->
                                             <!-- TODO: use Sitefinity's helper to make dspAccordionOption1{n} id and for -->
@@ -480,7 +562,49 @@
 
                                                     <div class="dsp-tabstrip__content-wrapper">
                                                         <div id="day-1" class="dsp-tabstrip__content active">
-                                                            <h3>Day 1</h3>
+                                                            <section class="dsp-desc-list">
+                                                                <article class="dsp-desc-list__item">
+                                                                    <div class="dsp-desc-list__term">
+                                                                        <span>7:00 AM</span> - <span>8:00 AM</span>
+                                                                    </div>
+                                                                    <div class="dsp-desc-list__desc">
+                                                                        <h6 class="dsp-desc-list__heading">Registration Open</h6>
+                                                                        <p class="dsp-desc-list__body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                                                    </div>
+                                                                </article>
+                                                                <article class="dsp-desc-list__item">
+                                                                    <div class="dsp-desc-list__term">
+                                                                        <span>8:00 AM</span> - <span>10:45 AM</span>
+                                                                    </div>
+                                                                    <div class="dsp-desc-list__desc">
+                                                                        <h6 class="dsp-desc-list__heading">Registration Open</h6>
+                                                                        <p class="dsp-desc-list__body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                                                        </p>
+                                                                    </div>
+                                                                </article>
+                                                                <article class="dsp-desc-list__item">
+                                                                    <div class="dsp-desc-list__term">
+                                                                        <span>10:45 AM</span> - <span>11:45 AM</span>
+                                                                    </div>
+                                                                    <div class="dsp-desc-list__desc">
+                                                                        <h6 class="dsp-desc-list__heading">LUNCH</h6>
+                                                                    </div>
+                                                                </article>
+                                                                <article class="dsp-desc-list__item">
+                                                                    <div class="dsp-desc-list__term">
+                                                                        <span>10:45 AM</span> - <span>11:45 AM</span>
+                                                                    </div>
+                                                                    <div class="dsp-desc-list__desc">
+                                                                        <h6 class="dsp-desc-list__heading">Registration
+                                                                            Open</h6>
+                                                                        <p class="dsp-desc-list__body">Lorem ipsum dolor
+                                                                            sit amet, consectetur
+                                                                            adipiscing elit, sed do eiusmod tempor
+                                                                            incididunt ut labore et dolore magna aliqua.
+                                                                        </p>
+                                                                    </div>
+                                                                </article>
+                                                            </section>
                                                         </div>
 
                                                         <div id="day-2" class="dsp-tabstrip__content">
@@ -493,6 +617,12 @@
                                                     </div>
                                                 </div>
                                             </section>
+                                            <a class="dsp-cta-back" href="#">
+                                                <svg width="22" height="12" viewBox="0 0 22 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M6.54589 7.95324H21.2891C21.6127 7.95324 21.875 7.69089 21.875 7.36731V4.63293C21.875 4.30935 21.6127 4.04699 21.2891 4.04699H6.54589V1.79802C6.54589 0.753976 5.28363 0.231125 4.54535 0.969357L0.34325 5.17146C-0.114417 5.62912 -0.114417 6.37112 0.34325 6.82873L4.54535 11.0308C5.28358 11.7691 6.54589 11.2462 6.54589 10.2022V7.95324Z"/>
+                                                </svg>                                                        
+                                                Back to Events
+                                            </a>
                                             <script>
 
                                                 const tabstrip = document.getElementById("uniqueDspTabstrip");
