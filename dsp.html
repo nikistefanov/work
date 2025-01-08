@@ -14,7 +14,6 @@
     }
 
     .dsp-section h1 {
-        font-family: Arvo;
         font-size: 32px;
         line-height: 34px;
     }
@@ -22,6 +21,27 @@
     .dsp-section .dsp-tabstrip {
         padding-inline: 0.5rem;
         margin-top: 2rem;
+    }
+
+    .dsp-section ul {
+        margin-left: 15px;
+    }
+
+    .dsp-section ul,
+    .dsp-section p {
+        margin-block: 0;
+    }
+
+    .dsp-section.-side-by-side-col.sf_cols {
+        display: flex;
+        width: auto;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-inline: -1rem;
+    }
+
+    .dsp-section.-side-by-side-col.sf_cols .sf_colsOut {
+        display: flex;
     }
 
     /*#endregion Layout*/
@@ -57,6 +77,32 @@
         cursor: pointer;
     }
     /*#endregion Generic*/
+
+    /*#region Card*/
+    .dsp-card {
+        background-color: #FAFAFA;
+        padding: 30px 20px;
+        border-bottom: 4px solid #F9BB00;
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+    }
+
+    .dsp-card .dsp-card__heading {
+        font-size: 24px;
+        line-height: 28px;
+        margin-bottom: 20px;
+    }
+
+    .dsp-card.-narrow {
+        padding-block: 20px;
+        text-align: center;
+    }
+
+    .dsp-card.-narrow .dsp-card__heading {
+        font-size: 20px;
+        margin-bottom: 1rem;
+    }
+    /*#endregion Card*/
 
     /*#region Hero*/
     .dsp-hero {
@@ -412,9 +458,31 @@
         .dsp-hero img {
             order: 2;
         }
+
+        .dsp-section.-side-by-side-col.sf_cols {
+            flex-direction: column;
+            margin-inline: 0;
+            gap: 0;
+            padding-inline: 2rem;
+            padding-block: 0;
+            margin-block: 1rem;
+        }
+
+        .dsp-section.-side-by-side-col.sf_cols .sf_colsOut {
+            display: block;
+            width: 100%;
+        }
+
+        .dsp-section.-side-by-side-col.sf_cols .sf_colsOut + .sf_colsOut {
+            margin-top: 1rem;
+        }
     }
 
     @media only screen and (max-width: 480px) {
+        .dsp-section h1 {
+            text-align: center;
+        }
+
         .dsp-media {
             padding-left: 30px;
             padding-top: 10px;
@@ -440,6 +508,11 @@
 
         .sub-content .sub-content-left .dsp-accordion .dsp-tab__label {
             padding-inline: 10px;
+        }
+
+        .sub-content-right .dsp-tabstrip__tabs:has(> .dsp-tabstrip__tablink:nth-child(5)) {
+            display: flex;
+            margin-inline: -35px;
         }
     }
 
@@ -592,6 +665,45 @@
                                                     <div class="dsp-hero__subheading">March 7-9, 2025 in Baton Rouge, LA</div>
                                                     <button class="dsp-button">Register now</button>
                                                 </div>
+                                            </div>
+                                        </div>
+                                        <div class="dsp-section">
+                                            <div class="dsp-card">
+                                                <div class="dsp-card__heading">Conference Details:</div>
+                                                <div class="dsp-card__body">
+                                                    <ul>
+                                                        <li>Friday, February 28, 2025 to Sunday, March 2, 2025</li>
+                                                        <li>Onsite check-in opens Friday, February 28, 2025 at 5:00 pm</li>
+                                                    </ul>
+                                                    <br>
+                                                    <p>Find out what you can expect at the Southern LEAD Provincial Conference by reviewing our LEAD draft Agenda (coming soon), which includes session titles and information. </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="sf_cols dsp-section -side-by-side-col">
+                                            <div class="sf_colsOut sf_2cols_1_50">
+                                                <div class="dsp-card -narrow">
+                                                    <div class="dsp-card__heading">Northeastern LEAD Provincial Conference</div>
+                                                    <div class="dsp-card__body">January 31-February 2, 2025 in Alexandria, VA</div>
+                                                </div>
+                                            </div>
+                                            <div class="sf_colsOut sf_2cols_2_50">
+                                                <div class="dsp-card -narrow">
+                                                    <div class="dsp-card__heading">Western LEAD Provincial Conference</div>
+                                                    <div class="dsp-card__body">
+                                                        <p>February 7-9, 2025 in Portland, OR</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="sf_cols dsp-section -side-by-side-col">
+                                            <div class="sf_colsOut sf_2cols_1_50">
+                                                <div class="dsp-card -narrow">
+                                                    <div class="dsp-card__heading">Northeastern LEAD Provincial Conference</div>
+                                                    <div class="dsp-card__body">January 31-February 2, 2025 in Alexandria, VA</div>
+                                                </div>
+                                            </div>
+                                            <div class="sf_colsOut sf_2cols_2_50">
                                             </div>
                                         </div>
                                         <div class="dsp-section">
