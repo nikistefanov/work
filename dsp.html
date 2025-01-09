@@ -304,9 +304,8 @@
         overflow: hidden;
     }
 
-    .dsp-accordion .dsp-tab__link {
-        padding-right: 0;
-        width: calc(100% - 40px);
+    .dsp-accordion .dsp-tab__link.-empty {
+        width: 100%;
     }
 
     .dsp-accordion .dsp-chevron {
@@ -323,6 +322,7 @@
     .dsp-accordion .dsp-tab__label:hover,
     .dsp-accordion .dsp-tab__label:hover a.dsp-tab__link,
     .dsp-accordion .dsp-tab__label:hover a:visited.dsp-tab__link,
+    .dsp-accordion .dsp-tab .dsp-tab__label a.dsp-tab__link.active,
     .dsp-accordion .dsp-tab input:checked~.dsp-tab__label a.dsp-tab__link,
     .dsp-accordion .dsp-tab input:checked~.dsp-tab__label .dsp-chevron,
     .dsp-accordion .dsp-tab .dsp-tab__content a.dsp-tab__content-link.active {
