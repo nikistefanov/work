@@ -26,27 +26,50 @@
     </div>
 </section>
 <script>
+    const MOBILE_BREAKPOINT = 480;
+    const ACTIVE_CLASS = "active";
+
     const dspAccordion = document.getElementById("uniqueDspAccordion");
     const checkboxes = dspAccordion.querySelectorAll('input[type="checkbox"]');
     let currentItem = null;
+    let initialLoad = true;
     checkboxes.forEach((checkbox) => {
         checkbox.addEventListener("click", (ev) => {
+            handleMobileInitialOpen(ev);
             collapse(ev.target);
+            ev.target.classList.toggle(ACTIVE_CLASS);
 
-            if (window.outerWidth <= 480 && ev.target.checked) {
-                currentItem = ev.target;
-                document.addEventListener("click", documentClickEv);
-            }
+            addMobileClickOutside(ev);
         })
     });
 
     function collapse(curr) {
-        Array.from(checkboxes).filter(x => x !== curr && x.checked).map(x => x.checked = false);
+        initialLoad = false;
+        Array.from(checkboxes).filter(x => x !== curr && x.checked).map(x => {
+            x.classList.remove(ACTIVE_CLASS);
+            x.checked = false;
+        });
 
         if (currentItem) {
             document.removeEventListener("click", documentClickEv);
             currentItem = null;
         }
+    }
+
+    function handleMobileInitialOpen(ev) {
+        // Handle the case when loaded on mobile with selected state
+        if (initialLoad && window.outerWidth <= MOBILE_BREAKPOINT && (!!ev.target.attributes.checked || ev.target.checked)) {
+                ev.target.checked = true;
+                ev.target.classList.add(ACTIVE_CLASS);
+            }
+    }
+
+    function addMobileClickOutside(ev) {
+        if (window.outerWidth <= MOBILE_BREAKPOINT && (!!ev.target.attributes.checked || ev.target.checked)) {
+                currentItem = ev.target;
+                document.addEventListener("click", documentClickEv);
+                ev.target.classList.add(ACTIVE_CLASS);
+            }
     }
 
     function documentClickEv(ev) {

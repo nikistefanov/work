@@ -514,6 +514,15 @@
             display: flex;
             margin-inline: -35px;
         }
+
+        .dsp-accordion .dsp-tab input:not(.active):checked~.dsp-tab__content {
+            max-height: 0;
+            padding: 0;
+        }
+
+        .dsp-accordion .dsp-tab input:not(.active):checked~.dsp-tab__label .dsp-chevron::before {
+            content: "\f078";
+        }
     }
 
     /*#endregion queries*/
@@ -570,7 +579,7 @@
                                                 </div>
                                                 <div class="dsp-tab">
                                                     <input type="checkbox" name="dsp-accordion-2"
-                                                        id="dspAccordionOption2">
+                                                        id="dspAccordionOption2" checked>
                                                     <label for="dspAccordionOption2" class="dsp-tab__label">
                                                         <a class="dsp-tab__link" href="#somewhere">Western LEAD
                                                             Provincial Conferences</a>
