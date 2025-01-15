@@ -393,6 +393,11 @@
         line-height: 24px;
     }
 
+    .dsp-desc-list__heading + .dsp-desc-list__body,
+    .dsp-desc-list__body + .dsp-desc-list__button {
+        margin-top: 1rem;
+    }
+
     .dsp-desc-list__heading {
         font-family: Roboto Slab;
         font-size: 18px;
@@ -815,14 +820,45 @@
                                                                     <div class="dsp-desc-list__desc">
                                                                         <h6 class="dsp-desc-list__heading">Registration
                                                                             Open</h6>
-                                                                        <p class="dsp-desc-list__body">Lorem ipsum dolor
+                                                                        <p class="dsp-desc-list__body -trimmed">Lorem ipsum dolor...
+                                                                        </p>
+                                                                        <p class="dsp-desc-list__body" style="display: none;">Lorem ipsum dolor
                                                                             sit amet, consectetur
                                                                             adipiscing elit, sed do eiusmod tempor
                                                                             incididunt ut labore et dolore magna aliqua.
                                                                         </p>
+                                                                        <button type="button" class="dsp-desc-list__button dsp-button" data-expanded-text="Show less" data-collapsed-text="Read more">Read more</button>
                                                                     </div>
                                                                 </article>
                                                             </section>
+                                                            <script>
+                                                                document.addEventListener("DOMContentLoaded", () => {
+                                                                    var descList = document.querySelectorAll(".dsp-desc-list");
+                                                                    if (descList && descList.length) {
+                                                                        var toggleButtons = [];
+                                                                        descList.forEach((list) => {
+                                                                            toggleButtons.push(...list.querySelectorAll(".dsp-desc-list__button"));
+                                                                        });
+
+                                                                        toggleButtons.forEach((button) => {
+                                                                            button.addEventListener("click", () => {
+                                                                                const defaultBody = button.parentElement.querySelector(".dsp-desc-list__body:not(.-trimmed)");
+                                                                                const trimmedBody = button.parentElement.querySelector(".dsp-desc-list__body.-trimmed");
+
+                                                                                if (button.dataset.collapsedText.toLowerCase() === button.innerText.toLowerCase()) {
+                                                                                    trimmedBody.style.display = "none";
+                                                                                    defaultBody.style.display = "block";
+                                                                                    button.innerText = button.dataset.expandedText;
+                                                                                } else {
+                                                                                    trimmedBody.style.display = "block";
+                                                                                    defaultBody.style.display = "none";
+                                                                                    button.innerText = button.dataset.collapsedText;
+                                                                                }
+                                                                            });
+                                                                        })
+                                                                    }
+                                                                });
+                                                            </script>
                                                         </div>
 
                                                         <div id="day-2" class="dsp-tabstrip__content">
